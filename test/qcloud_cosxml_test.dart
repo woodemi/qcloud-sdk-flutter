@@ -10,4 +10,10 @@ void main() {
     var service = await cosClient.getService();
     expect(service, isNotNull);
   });
+
+  test('test listObject', () async {
+    var listObject = await cosClient.getBucket('test-1256480948', 'ap-beijing');
+    print('listObject $listObject');
+    expect(listObject, isNotNull);
+  });
 }
