@@ -42,4 +42,17 @@ class CosClient {
     ));
     return response.data.toString();
   }
+
+  Future<String> getBucket(String bucket, String region) async {
+    var host = '$bucket.cos.$region.myqcloud.com';
+    var path = '/';
+    var response = await Dio().get('https://$host$path', options: Options(
+        headers: _buildHeaders(
+          method: 'get',
+          host: host,
+          path: path,
+        )
+    ));
+    return response.data.toString();
+  }
 }
